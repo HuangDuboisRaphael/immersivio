@@ -9,11 +9,11 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
-struct ImmersiveView: View {
+struct StadiumView: View {
     var body: some View {
         RealityView { content in
             // Add the initial RealityKit content
-            if let scene = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
+            if let scene = try? await Entity(named: "Scene", in: realityKitContentBundle) {
                 content.add(scene)
             }
         }
@@ -21,6 +21,6 @@ struct ImmersiveView: View {
 }
 
 #Preview {
-    ImmersiveView()
+    StadiumView()
         .previewLayout(.sizeThatFits)
 }

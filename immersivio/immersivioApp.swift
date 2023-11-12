@@ -9,13 +9,24 @@ import SwiftUI
 
 @main
 struct immersivioApp: App {
+    @State private var viewModel = ViewModel()
+    
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }.windowStyle(.volumetric)
+        WindowGroup(id: Module.control.name) {
+            ControlView()
+                .environment(viewModel)
+        }
+        .windowStyle(.plain)
+        
+        WindowGroup(id: Module.pitch.name) {
+            PitchView()
+                .environment(viewModel)
+        }
+        .windowStyle(.volumetric)
+        .defaultSize(width: 0.84, height: 0.5, depth: 0.84, in: .meters)
 
-        ImmersiveSpace(id: "ImmersiveSpace") {
-            ImmersiveView()
+        ImmersiveSpace(id: Module.stadium.name) {
+            StadiumView()
         }
     }
 }
