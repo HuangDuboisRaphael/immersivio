@@ -12,6 +12,10 @@
 		C81E0BB32AFEDCA0001A75EB /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E0BB22AFEDCA0001A75EB /* ControlView.swift */; };
 		C81E0BB72AFEE2D2001A75EB /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E0BB62AFEE2D2001A75EB /* Module.swift */; };
 		C86BA1B32B00087F00DB63C1 /* FloatingPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86BA1B22B00087F00DB63C1 /* FloatingPoint+Extensions.swift */; };
+		C86D7C742B028B6800289096 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86D7C732B028B6800289096 /* Team.swift */; };
+		C86D7C772B028DAE00289096 /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86D7C762B028DAE00289096 /* PanelView.swift */; };
+		C86D7C7A2B02921500289096 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86D7C792B02921500289096 /* CustomFonts.swift */; };
+		C86D7C7C2B02969600289096 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86D7C7B2B02969600289096 /* ButtonStyle.swift */; };
 		C882E42F2AFD8DCA00A563C3 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = C882E42E2AFD8DCA00A563C3 /* RealityKitContent */; };
 		C882E4312AFD8DCA00A563C3 /* immersivioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882E4302AFD8DCA00A563C3 /* immersivioApp.swift */; };
 		C882E4332AFD8DCA00A563C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882E4322AFD8DCA00A563C3 /* ContentView.swift */; };
@@ -26,6 +30,10 @@
 		C81E0BB22AFEDCA0001A75EB /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
 		C81E0BB62AFEE2D2001A75EB /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		C86BA1B22B00087F00DB63C1 /* FloatingPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+Extensions.swift"; sourceTree = "<group>"; };
+		C86D7C732B028B6800289096 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		C86D7C762B028DAE00289096 /* PanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelView.swift; sourceTree = "<group>"; };
+		C86D7C792B02921500289096 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
+		C86D7C7B2B02969600289096 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		C882E4292AFD8DCA00A563C3 /* immersivio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = immersivio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C882E42D2AFD8DCA00A563C3 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		C882E4302AFD8DCA00A563C3 /* immersivioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = immersivioApp.swift; sourceTree = "<group>"; };
@@ -52,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				C81E0BAE2AFEAF13001A75EB /* ViewModel.swift */,
+				C86D7C732B028B6800289096 /* Team.swift */,
 				C81E0BB62AFEE2D2001A75EB /* Module.swift */,
 			);
 			path = Model;
@@ -60,8 +69,8 @@
 		C86BA1AD2AFFECEB00DB63C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C86D7C752B028D7C00289096 /* Pitch */,
 				C81E0BB22AFEDCA0001A75EB /* ControlView.swift */,
-				C81E0BB02AFEAF4F001A75EB /* PitchView.swift */,
 				C882E4342AFD8DCA00A563C3 /* ImmersiveView.swift */,
 			);
 			path = Views;
@@ -81,6 +90,24 @@
 				C86BA1B22B00087F00DB63C1 /* FloatingPoint+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C86D7C752B028D7C00289096 /* Pitch */ = {
+			isa = PBXGroup;
+			children = (
+				C81E0BB02AFEAF4F001A75EB /* PitchView.swift */,
+				C86D7C762B028DAE00289096 /* PanelView.swift */,
+			);
+			path = Pitch;
+			sourceTree = "<group>";
+		};
+		C86D7C782B0291F800289096 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C86D7C792B02921500289096 /* CustomFonts.swift */,
+				C86D7C7B2B02969600289096 /* ButtonStyle.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		C882E4202AFD8DCA00A563C3 = {
@@ -107,6 +134,7 @@
 				C882E4322AFD8DCA00A563C3 /* ContentView.swift */,
 				C86BA1AD2AFFECEB00DB63C1 /* Views */,
 				C81E0BB52AFEE2C2001A75EB /* Model */,
+				C86D7C782B0291F800289096 /* UI */,
 				C86BA1B12B00086E00DB63C1 /* Extensions */,
 				C86BA1AE2AFFED1E00DB63C1 /* Resources */,
 				C882E43B2AFD8DCB00A563C3 /* Info.plist */,
@@ -204,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C86D7C742B028B6800289096 /* Team.swift in Sources */,
 				C882E4332AFD8DCA00A563C3 /* ContentView.swift in Sources */,
 				C882E4312AFD8DCA00A563C3 /* immersivioApp.swift in Sources */,
 				C86BA1B32B00087F00DB63C1 /* FloatingPoint+Extensions.swift in Sources */,
@@ -211,7 +240,10 @@
 				C882E4352AFD8DCA00A563C3 /* ImmersiveView.swift in Sources */,
 				C81E0BB72AFEE2D2001A75EB /* Module.swift in Sources */,
 				C81E0BB32AFEDCA0001A75EB /* ControlView.swift in Sources */,
+				C86D7C7A2B02921500289096 /* CustomFonts.swift in Sources */,
+				C86D7C7C2B02969600289096 /* ButtonStyle.swift in Sources */,
 				C81E0BB12AFEAF4F001A75EB /* PitchView.swift in Sources */,
+				C86D7C772B028DAE00289096 /* PanelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

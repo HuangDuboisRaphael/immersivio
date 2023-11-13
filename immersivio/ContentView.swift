@@ -34,7 +34,7 @@ struct ContentView: View {
             .padding(36)
             .glassBackgroundEffect()
             
-            PitchView()
+            PitchView(viewModel: viewModel)
             
         }
         .onChange(of: showImmersiveSpace) { _, newValue in

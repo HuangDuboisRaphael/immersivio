@@ -13,17 +13,15 @@ struct immersivioApp: App {
     
     var body: some Scene {
         WindowGroup(id: Module.control.name) {
-            ControlView()
-                .environment(viewModel)
+            ControlView(viewModel: viewModel)
         }
         .windowStyle(.plain)
         
         WindowGroup(id: Module.pitch.name) {
-            PitchView()
-                .environment(viewModel)
+            PitchView(viewModel: viewModel)
         }
         .windowStyle(.volumetric)
-        .defaultSize(width: 0.84, height: 0.5, depth: 0.84, in: .meters)
+        .defaultSize(width: 0.9, height: 0.5, depth: 0.9, in: .meters)
 
         ImmersiveSpace(id: Module.stadium.name) {
             StadiumView()
