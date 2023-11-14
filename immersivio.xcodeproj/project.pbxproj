@@ -22,6 +22,8 @@
 		C882E4352AFD8DCA00A563C3 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882E4342AFD8DCA00A563C3 /* ImmersiveView.swift */; };
 		C882E4372AFD8DCB00A563C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C882E4362AFD8DCB00A563C3 /* Assets.xcassets */; };
 		C882E43A2AFD8DCB00A563C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C882E4392AFD8DCB00A563C3 /* Preview Assets.xcassets */; };
+		C8B8651B2B03AF44007AB8E1 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8651A2B03AF44007AB8E1 /* VideoView.swift */; };
+		C8B865202B03D4E5007AB8E1 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8651F2B03D4E5007AB8E1 /* AppConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		C882E4362AFD8DCB00A563C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C882E4392AFD8DCB00A563C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C882E43B2AFD8DCB00A563C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8B8651A2B03AF44007AB8E1 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		C8B8651F2B03D4E5007AB8E1 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,21 +60,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C81E0BB52AFEE2C2001A75EB /* Model */ = {
+		C81E0BB52AFEE2C2001A75EB /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C81E0BAE2AFEAF13001A75EB /* ViewModel.swift */,
 				C86D7C732B028B6800289096 /* Team.swift */,
 				C81E0BB62AFEE2D2001A75EB /* Module.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C86BA1AD2AFFECEB00DB63C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C86D7C752B028D7C00289096 /* Pitch */,
 				C81E0BB22AFEDCA0001A75EB /* ControlView.swift */,
+				C86D7C752B028D7C00289096 /* Pitch */,
+				C8B8651A2B03AF44007AB8E1 /* VideoView.swift */,
 				C882E4342AFD8DCA00A563C3 /* ImmersiveView.swift */,
 			);
 			path = Views;
@@ -104,8 +109,8 @@
 		C86D7C782B0291F800289096 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C86D7C792B02921500289096 /* CustomFonts.swift */,
 				C86D7C7B2B02969600289096 /* ButtonStyle.swift */,
+				C86D7C792B02921500289096 /* CustomFonts.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -133,9 +138,10 @@
 				C882E4302AFD8DCA00A563C3 /* immersivioApp.swift */,
 				C882E4322AFD8DCA00A563C3 /* ContentView.swift */,
 				C86BA1AD2AFFECEB00DB63C1 /* Views */,
-				C81E0BB52AFEE2C2001A75EB /* Model */,
+				C81E0BB52AFEE2C2001A75EB /* Models */,
 				C86D7C782B0291F800289096 /* UI */,
 				C86BA1B12B00086E00DB63C1 /* Extensions */,
+				C8B8651E2B03D4DA007AB8E1 /* Utils */,
 				C86BA1AE2AFFED1E00DB63C1 /* Resources */,
 				C882E43B2AFD8DCB00A563C3 /* Info.plist */,
 				C882E4382AFD8DCB00A563C3 /* Preview Content */,
@@ -157,6 +163,14 @@
 				C882E4392AFD8DCB00A563C3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C8B8651E2B03D4DA007AB8E1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C8B8651F2B03D4E5007AB8E1 /* AppConstants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +258,8 @@
 				C86D7C7C2B02969600289096 /* ButtonStyle.swift in Sources */,
 				C81E0BB12AFEAF4F001A75EB /* PitchView.swift in Sources */,
 				C86D7C772B028DAE00289096 /* PanelView.swift in Sources */,
+				C8B865202B03D4E5007AB8E1 /* AppConstants.swift in Sources */,
+				C8B8651B2B03AF44007AB8E1 /* VideoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

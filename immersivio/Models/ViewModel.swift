@@ -7,14 +7,16 @@
 
 import SwiftUI
 import RealityKit
+import AVKit
 
 @Observable
 final class ViewModel {
     
     // MARK: - Control
-    var togglePitchTitle: String = "Show 3D pitch"
-    var sliderScaleTitle: String = "Scale"
-    var sliderRotateTitle: String = "Rotate"
+    var videoToggleTitle: String = "Last match replay"
+    var pitchToggleTitle: String = "Show 3D pitch"
+    var pitchScaleSliderTitle: String = "Scale"
+    var pitchRotateSliderTitle: String = "Rotate"
     var pitchScaleSliderValue: Float = 0.7
     var pitchRotation: Angle = Angle.zero
     
@@ -70,6 +72,10 @@ final class ViewModel {
             )
         }
     }
+    
+    // MARK: - Video
+    var player: AVPlayer { AVPlayer(url: URL(string: AppConstants.Video.url)!) }
+    var displayVideo: Bool = false
     
     // MARK: - Immersive
     var showImmersiveStadium: Bool = false

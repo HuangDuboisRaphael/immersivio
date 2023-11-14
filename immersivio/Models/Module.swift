@@ -8,6 +8,6 @@
 import Foundation
 
 enum Module: String {
-    case control, pitch, stadium
+    case control, pitch, video, stadium
     var name: String { rawValue.capitalized }
 }

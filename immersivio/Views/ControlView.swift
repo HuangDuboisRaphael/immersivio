@@ -17,6 +17,8 @@ struct ControlView: View {
         VStack {
             Spacer()
             Grid(verticalSpacing: 30) {
+                VideoToggle(viewModel: viewModel)
+                Divider()
                 PitchToggle(viewModel: viewModel)
                 GridRowSliders(viewModel: viewModel)
                 
@@ -32,6 +34,36 @@ struct ControlView: View {
     }
 }
 
+struct VideoToggle: View {
+    @Environment(\.openWindow) private var openWindow
+    @Environment(\.dismissWindow) private var dismissWindow
+    
+    let viewModel: ViewModel
+    
+    var body: some View {
+        @Bindable var viewModel = viewModel
+        
+        HStack {
+            Text(viewModel.videoToggleTitle)
+            Spacer()
+            Button {
+                viewModel.displayVideo.toggle()
+            } label: {
+                Image(systemName: viewModel.displayVideo ? "stop.fill" : "play.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 18, height: 18)
+            }
+        }.onChange(of: viewModel.displayVideo) {
+            if viewModel.displayVideo {
+                openWindow(id: Module.video.name)
+            } else {
+                dismissWindow(id: Module.video.name)
+            }
+        }
+    }
+}
+
 struct PitchToggle: View {
     @Environment(\.openWindow) private var openWindow
     @Environment(\.dismissWindow) private var dismissWindow
@@ -42,7 +74,7 @@ struct PitchToggle: View {
         @Bindable var viewModel = viewModel
         
         Toggle(isOn: $viewModel.showVolumetricPitch) {
-            Text(viewModel.togglePitchTitle)
+            Text(viewModel.pitchToggleTitle)
         }
         .onChange(of: viewModel.showVolumetricPitch) {
             if viewModel.showVolumetricPitch {
@@ -61,7 +93,7 @@ struct GridRowSliders: View {
         @Bindable var viewModel = viewModel
         
         GridRowSlider(
-            title: viewModel.sliderScaleTitle,
+            title: viewModel.pitchScaleSliderTitle,
             value: $viewModel.pitchScaleSliderValue,
             range: 0...1,
             showVolumetricPitch: viewModel.showVolumetricPitch)
@@ -70,7 +102,7 @@ struct GridRowSliders: View {
             }
         
         GridRowSlider(
-            title: viewModel.sliderRotateTitle,
+            title: viewModel.pitchRotateSliderTitle,
             value: $viewModel.pitchRotation.degrees,
             range: 0...180,
             showVolumetricPitch: viewModel.showVolumetricPitch)

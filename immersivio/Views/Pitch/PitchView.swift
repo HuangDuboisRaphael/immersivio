@@ -55,6 +55,5 @@ struct PitchView: View {
                 }
             }
         }
-        .rotation3DEffect(viewModel.pitchRotation, axis: .y)
     }
 }
