@@ -14,40 +14,39 @@ final class ViewModel {
     
     // MARK: - Control
     var videoToggleTitle: String = "Last match replay"
+    var stadiumToggleTitle: String = "Immersive stadium"
     var pitchToggleTitle: String = "Show 3D pitch"
     var pitchScaleSliderTitle: String = "Scale"
     var pitchRotateSliderTitle: String = "Rotate"
-    var pitchScaleSliderValue: Float = 0.7
+    var pitchScaleSliderValue: Float = 0.75
     var pitchRotation: Angle = Angle.zero
     
     // MARK: - Pitch
     var rootEntity: Entity? = nil
-    var showVolumetricPitch: Bool = false
+    var isShowingPitch: Bool = false
     var pitchPosition: SIMD3<Float> = [0, -0.28, 0]
     var bordeauxScore: Int = 0
     var marseilleScore: Int = 0
-    var showExtendingMarseillePanel: Bool = false
-    var showExtendingBordeauxPanel: Bool = false
     
-    // Target position
+    // Target positions
     var marseilleAcuteTargetPosition: SIMD3<Float> {
-        [Float(-0.36 + 0.004 * pitchRotation.degrees),
-         0.29,
+        [Float(-0.33 + 0.0037 * pitchRotation.degrees),
+         0.27,
          Float(-1 + 0.011 * pitchRotation.degrees)]
     }
     var marseilleObtuseTargetPosition: SIMD3<Float> {
-        [Float(0 - 0.004 * (pitchRotation.degrees - 90)),
-         0.29,
+        [Float(0 - 0.0037 * (pitchRotation.degrees - 90)),
+         0.27,
          Float(0.011 * (pitchRotation.degrees - 90))]
     }
     var bordeauxAcuteTargetPosition: SIMD3<Float> {
-        [Float(0.36 + 0.004 * pitchRotation.degrees),
-         0.29,
+        [Float(0.33 + 0.0037 * pitchRotation.degrees),
+         0.27,
          Float(-1 + 0.011 * pitchRotation.degrees)]
     }
     var bordeauxObtuseTargetPosition: SIMD3<Float> {
-        [Float(0.72 - 0.004 * (pitchRotation.degrees - 90)),
-         0.29,
+        [Float(0.66 - 0.0037 * (pitchRotation.degrees - 90)),
+         0.27,
          Float(0.011 * (pitchRotation.degrees - 90))]
     }
     
@@ -75,8 +74,8 @@ final class ViewModel {
     
     // MARK: - Video
     var player: AVPlayer { AVPlayer(url: URL(string: AppConstants.Video.url)!) }
-    var displayVideo: Bool = false
+    var isDisplayingVideo: Bool = false
     
     // MARK: - Immersive
-    var showImmersiveStadium: Bool = false
+    var isShowingStadium: Bool = false
 }

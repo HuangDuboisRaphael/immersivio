@@ -18,8 +18,7 @@
 		C86D7C7C2B02969600289096 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86D7C7B2B02969600289096 /* ButtonStyle.swift */; };
 		C882E42F2AFD8DCA00A563C3 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = C882E42E2AFD8DCA00A563C3 /* RealityKitContent */; };
 		C882E4312AFD8DCA00A563C3 /* immersivioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882E4302AFD8DCA00A563C3 /* immersivioApp.swift */; };
-		C882E4332AFD8DCA00A563C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882E4322AFD8DCA00A563C3 /* ContentView.swift */; };
-		C882E4352AFD8DCA00A563C3 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882E4342AFD8DCA00A563C3 /* ImmersiveView.swift */; };
+		C882E4352AFD8DCA00A563C3 /* StadiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882E4342AFD8DCA00A563C3 /* StadiumView.swift */; };
 		C882E4372AFD8DCB00A563C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C882E4362AFD8DCB00A563C3 /* Assets.xcassets */; };
 		C882E43A2AFD8DCB00A563C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C882E4392AFD8DCB00A563C3 /* Preview Assets.xcassets */; };
 		C8B8651B2B03AF44007AB8E1 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8651A2B03AF44007AB8E1 /* VideoView.swift */; };
@@ -39,8 +38,7 @@
 		C882E4292AFD8DCA00A563C3 /* immersivio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = immersivio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C882E42D2AFD8DCA00A563C3 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		C882E4302AFD8DCA00A563C3 /* immersivioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = immersivioApp.swift; sourceTree = "<group>"; };
-		C882E4322AFD8DCA00A563C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C882E4342AFD8DCA00A563C3 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
+		C882E4342AFD8DCA00A563C3 /* StadiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiumView.swift; sourceTree = "<group>"; };
 		C882E4362AFD8DCB00A563C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C882E4392AFD8DCB00A563C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C882E43B2AFD8DCB00A563C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,7 +74,7 @@
 				C81E0BB22AFEDCA0001A75EB /* ControlView.swift */,
 				C86D7C752B028D7C00289096 /* Pitch */,
 				C8B8651A2B03AF44007AB8E1 /* VideoView.swift */,
-				C882E4342AFD8DCA00A563C3 /* ImmersiveView.swift */,
+				C882E4342AFD8DCA00A563C3 /* StadiumView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -136,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				C882E4302AFD8DCA00A563C3 /* immersivioApp.swift */,
-				C882E4322AFD8DCA00A563C3 /* ContentView.swift */,
 				C86BA1AD2AFFECEB00DB63C1 /* Views */,
 				C81E0BB52AFEE2C2001A75EB /* Models */,
 				C86D7C782B0291F800289096 /* UI */,
@@ -247,11 +244,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C86D7C742B028B6800289096 /* Team.swift in Sources */,
-				C882E4332AFD8DCA00A563C3 /* ContentView.swift in Sources */,
 				C882E4312AFD8DCA00A563C3 /* immersivioApp.swift in Sources */,
 				C86BA1B32B00087F00DB63C1 /* FloatingPoint+Extensions.swift in Sources */,
 				C81E0BAF2AFEAF13001A75EB /* ViewModel.swift in Sources */,
-				C882E4352AFD8DCA00A563C3 /* ImmersiveView.swift in Sources */,
+				C882E4352AFD8DCA00A563C3 /* StadiumView.swift in Sources */,
 				C81E0BB72AFEE2D2001A75EB /* Module.swift in Sources */,
 				C81E0BB32AFEDCA0001A75EB /* ControlView.swift in Sources */,
 				C86D7C7A2B02921500289096 /* CustomFonts.swift in Sources */,

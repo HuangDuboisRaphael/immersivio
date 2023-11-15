@@ -9,7 +9,7 @@ import SwiftUI
 import RealityKit
 
 struct ControlView: View {
-    let viewModel: ViewModel
+    @Environment(ViewModel.self) private var viewModel
     
     var body: some View {
         @Bindable var viewModel = viewModel
@@ -17,14 +17,15 @@ struct ControlView: View {
         VStack {
             Spacer()
             Grid(verticalSpacing: 30) {
-                VideoToggle(viewModel: viewModel)
+                VideoToggle()
+                StadiumToggle()
                 Divider()
-                PitchToggle(viewModel: viewModel)
-                GridRowSliders(viewModel: viewModel)
+                PitchToggle()
+                GridRowSliders()
                 
-                if viewModel.showVolumetricPitch {
+                if viewModel.isShowingPitch {
                     Divider()
-                    EditScores(viewModel: viewModel)
+                    EditScores()
                 }
             }
             .frame(width: 500)
@@ -37,25 +38,26 @@ struct ControlView: View {
 struct VideoToggle: View {
     @Environment(\.openWindow) private var openWindow
     @Environment(\.dismissWindow) private var dismissWindow
-    
-    let viewModel: ViewModel
+    @Environment(ViewModel.self) private var viewModel
     
     var body: some View {
         @Bindable var viewModel = viewModel
         
         HStack {
             Text(viewModel.videoToggleTitle)
+                .font(.system(size: 22))
+                .bold()
             Spacer()
             Button {
-                viewModel.displayVideo.toggle()
+                viewModel.isDisplayingVideo.toggle()
             } label: {
-                Image(systemName: viewModel.displayVideo ? "stop.fill" : "play.fill")
+                Image(systemName: viewModel.isDisplayingVideo ? "stop.fill" : "play.fill")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 18, height: 18)
             }
-        }.onChange(of: viewModel.displayVideo) {
-            if viewModel.displayVideo {
+        }.onChange(of: viewModel.isDisplayingVideo) {
+            if viewModel.isDisplayingVideo {
                 openWindow(id: Module.video.name)
             } else {
                 dismissWindow(id: Module.video.name)
@@ -64,20 +66,47 @@ struct VideoToggle: View {
     }
 }
 
-struct PitchToggle: View {
-    @Environment(\.openWindow) private var openWindow
-    @Environment(\.dismissWindow) private var dismissWindow
-    
-    let viewModel: ViewModel
+struct StadiumToggle: View {
+    @Environment(\.openImmersiveSpace) var openImmersiveSpace
+    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    @Environment(ViewModel.self) private var viewModel
     
     var body: some View {
         @Bindable var viewModel = viewModel
         
-        Toggle(isOn: $viewModel.showVolumetricPitch) {
-            Text(viewModel.pitchToggleTitle)
+        Toggle(isOn: $viewModel.isShowingStadium) {
+            Text(viewModel.stadiumToggleTitle)
+                .font(.system(size: 22))
+                .bold()
         }
-        .onChange(of: viewModel.showVolumetricPitch) {
-            if viewModel.showVolumetricPitch {
+        .onChange(of: viewModel.isShowingStadium) {
+            Task {
+                if viewModel.isShowingStadium {
+                    await openImmersiveSpace(id: Module.stadium.name)
+                } else {
+                    await dismissImmersiveSpace()
+                }
+            }
+        }
+        
+    }
+}
+
+struct PitchToggle: View {
+    @Environment(\.openWindow) private var openWindow
+    @Environment(\.dismissWindow) private var dismissWindow
+    @Environment(ViewModel.self) private var viewModel
+    
+    var body: some View {
+        @Bindable var viewModel = viewModel
+        
+        Toggle(isOn: $viewModel.isShowingPitch) {
+            Text(viewModel.pitchToggleTitle)
+                .font(.system(size: 22))
+                .bold()
+        }
+        .onChange(of: viewModel.isShowingPitch) {
+            if viewModel.isShowingPitch {
                 openWindow(id: Module.pitch.name)
             } else {
                 dismissWindow(id: Module.pitch.name)
@@ -87,7 +116,7 @@ struct PitchToggle: View {
 }
 
 struct GridRowSliders: View {
-    let viewModel: ViewModel
+    @Environment(ViewModel.self) private var viewModel
     
     var body: some View {
         @Bindable var viewModel = viewModel
@@ -95,8 +124,8 @@ struct GridRowSliders: View {
         GridRowSlider(
             title: viewModel.pitchScaleSliderTitle,
             value: $viewModel.pitchScaleSliderValue,
-            range: 0...1,
-            showVolumetricPitch: viewModel.showVolumetricPitch)
+            range: 0.45...1,
+            showVolumetricPitch: viewModel.isShowingPitch)
             .onChange(of: viewModel.pitchScaleSliderValue) {
                 viewModel.updateScale()
             }
@@ -105,7 +134,7 @@ struct GridRowSliders: View {
             title: viewModel.pitchRotateSliderTitle,
             value: $viewModel.pitchRotation.degrees,
             range: 0...180,
-            showVolumetricPitch: viewModel.showVolumetricPitch)
+            showVolumetricPitch: viewModel.isShowingPitch)
             .onChange(of: viewModel.pitchRotation) {
                 viewModel.pitchRotation.degrees += 1
             }
@@ -129,7 +158,7 @@ struct GridRowSlider<T>: View where T: BinaryFloatingPoint, T.Stride: BinaryFloa
 }
 
 struct EditScores: View {
-    let viewModel: ViewModel
+    @Environment(ViewModel.self) private var viewModel
     
     var body: some View {
         @Bindable var viewModel = viewModel
@@ -159,7 +188,7 @@ struct EditScore: View {
             .disabled(score == 0 ? true : false)
             
             Text(team.name)
-                .font(.system(size: 22))
+                .font(.system(size: 21))
                 .bold()
             
             Button {

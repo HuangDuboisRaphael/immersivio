@@ -9,7 +9,7 @@ import SwiftUI
 import AVKit
 
 struct VideoView: View {
-    let viewModel: ViewModel
+    @Environment(ViewModel.self) private var viewModel
     
     var body: some View {
         VideoPlayer(player: viewModel.player)

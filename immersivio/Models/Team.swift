@@ -35,8 +35,8 @@ enum Team: String, Identifiable, CaseIterable {
     
     var originalPanelPosition: SIMD3<Float> {
         switch self {
-        case .marseille: [-0.36, 0.29, 0]
-        case .bordeaux: [0.36, 0.29, 0]
+        case .marseille: [-0.33, 0.27, 0]
+        case .bordeaux: [0.33, 0.27, 0]
         }
     }
 }

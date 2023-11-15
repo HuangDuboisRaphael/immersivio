@@ -15,7 +15,7 @@ struct PanelView: View {
     
     var body: some View {
         ReducedPanel(
-            showExtendingPanel: $showExtendingPanel,
+            isShowingExtendingPanel: $showExtendingPanel,
             team: team,
             viewModel: viewModel)
         
@@ -31,14 +31,14 @@ struct PanelView: View {
 }
 
 struct ReducedPanel: View {
-    @Binding var showExtendingPanel: Bool
+    @Binding var isShowingExtendingPanel: Bool
     let team: Team
     let viewModel: ViewModel
     
     var body: some View {
         Button {
             withAnimation {
-                showExtendingPanel.toggle()
+                isShowingExtendingPanel.toggle()
             }
         } label: {
             VStack(spacing: 24) {
@@ -53,7 +53,7 @@ struct ReducedPanel: View {
             }
         }
         .buttonStyle(TeamPanelButtonStyle())
-        .opacity(showExtendingPanel ? 0 : 1)
+        .opacity(isShowingExtendingPanel ? 0 : 1)
     }
 }
 
@@ -64,36 +64,36 @@ struct ExtendedPanel: View {
     var scorers: [String] = ["D.Payet", "T.Henry", "O.Giroud", "A.Griezmann"]
     
     var body: some View {
-        VStack(alignment: .center, spacing: 2) {
+        VStack(alignment: .center, spacing: 1) {
             Image(team.imageLogo)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 100, height: 100)
+                .frame(width: 80, height: 80)
             
             Text(team.name)
-                .font(.custom(CustomFonts.copperplate.rawValue, size: 30))
+                .font(.custom(CustomFonts.copperplate.rawValue, size: 21))
                 .foregroundStyle(.black)
             
             Text(String(team == .marseille ?
                         viewModel.marseilleScore : viewModel.bordeauxScore))
                 .foregroundStyle(.black)
-                .font(.custom(CustomFonts.academy.rawValue, size: 145))
+                .font(.custom(CustomFonts.academy.rawValue, size: 105))
                 .padding(.top, 15)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
                     ForEach(scorers, id: \.self) {
                         Text("⚽ \($0) ")
-                            .font(.system(size: 22))
+                            .font(.system(size: 16))
                             .foregroundStyle(.black)
                     }
                 }
             }
             .padding(.horizontal)
-            .padding(.top, -40)
+            .padding(.top, -35)
             Spacer()
         }
-        .frame(maxWidth: 250)
+        .frame(maxWidth: 185)
         .background(.white.opacity(0.5), in: .rect(cornerRadius: 20))
     }
 }

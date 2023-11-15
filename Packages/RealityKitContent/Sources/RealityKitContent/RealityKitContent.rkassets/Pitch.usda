@@ -15,7 +15,7 @@ def Xform "Root"
         prepend references = @Import/Pitch_import.usdz@
     )
     {
-        float3 xformOp:scale = (0.42, 0.42, 0.42)
+        float3 xformOp:scale = (0.38, 0.38, 0.38)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         def RealityKitComponent "Collider"
@@ -40,6 +40,68 @@ def Xform "Root"
         def RealityKitComponent "InputTarget"
         {
             uniform token info:id = "RealityKit.InputTarget"
+        }
+
+        over "Materials"
+        {
+            over "Material_098"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+
+            over "Material_099"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+
+            over "Material_100"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+
+            over "Material_101"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+
+            over "Material_102"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+
+            over "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+
+            over "Material_129"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+
+            over "Material_130"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+        }
+
+        over "Geom"
+        {
+            over "RootNode"
+            {
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.01, 0.01, 0.01)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
         }
     }
 }

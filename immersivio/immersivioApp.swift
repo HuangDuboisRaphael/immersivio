@@ -10,28 +10,34 @@ import SwiftUI
 @main
 struct immersivioApp: App {
     @State private var viewModel = ViewModel()
+    @State private var stadiumImmersionStyle: ImmersionStyle = .full
     
     var body: some Scene {
         WindowGroup(id: Module.control.name) {
-            ControlView(viewModel: viewModel)
+            ControlView()
+                .environment(viewModel)
         }
         .windowStyle(.plain)
         
         WindowGroup(id: Module.pitch.name) {
-            PitchView(viewModel: viewModel)
+            PitchView()
+                .environment(viewModel)
         }
         .windowStyle(.volumetric)
-        .defaultSize(width: 0.9, height: 0.5, depth: 0.9, in: .meters)
+        .defaultSize(width: 0.96, height: 0.4, depth: 0.96, in: .meters)
         
         WindowGroup(id: Module.video.name) {
-            VideoView(viewModel: viewModel)
+            VideoView()
+                .environment(viewModel)
         }
         .windowStyle(.plain)
-        // Reduce the default size as indicating in Apple's guidance: "Using a small window for playback, letting people resize it if they want"
+        // Reduce the default size as indicating in Apple's guidance: "Using a small window for playback, letting people resize it if they want".
         .defaultSize(CGSize(width: 750, height: 450))
 
         ImmersiveSpace(id: Module.stadium.name) {
             StadiumView()
+                .environment(viewModel)
         }
+        .immersionStyle(selection: $stadiumImmersionStyle, in: .full)
     }
 }
