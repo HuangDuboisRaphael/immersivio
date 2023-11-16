@@ -11,7 +11,7 @@ struct ScorerView: View {
     @Environment(ViewModel.self) private var viewModel
     
     var body: some View {
-        Text("⚽ \(viewModel.currentScorer?.uppercased() ?? "") GOALS! ⚽")
+        Text("⚽ \(viewModel.currentScorer?.name.uppercased() ?? "") GOALS! ⚽")
             .foregroundStyle(.black)
             .font(.extraLargeTitle)
             .padding()

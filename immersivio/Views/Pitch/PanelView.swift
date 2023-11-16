@@ -76,8 +76,8 @@ struct ExtendedPanel: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
-                    ForEach(team == .marseille ? viewModel.marseilleScorers : viewModel.bordeauxScorers, id: \.self) {
-                        Text("⚽ \($0) ")
+                    ForEach(team == .marseille ? viewModel.marseilleScorers : viewModel.bordeauxScorers) { scorer in
+                        Text("⚽ \(scorer.name) ")
                             .font(.system(size: 16))
                             .foregroundStyle(.black)
                     }

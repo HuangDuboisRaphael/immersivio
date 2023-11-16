@@ -2,7 +2,7 @@
 //  StadiumView.swift
 //  immersivio
 //
-//  Created by Siena Tung on 2023/11/9.
+//  Created by Siena Tung on 2023/11/16.
 //
 
 import SwiftUI
@@ -14,14 +14,15 @@ struct StadiumView: View {
     
     var body: some View {
         RealityView { content in
+            /// Stadium
             // Create a material with the stadium on it.
-            guard let resource = try? await TextureResource(named: "Stadium") else {
+            guard let resource = try? await TextureResource(named: ContentEntity.stadium.name) else {
                 // If the asset isn't available, something is wrong with the app.
                 fatalError("Unable to load stadium texture.")
             }
             var material = UnlitMaterial()
             material.color = .init(texture: .init(resource))
-
+            
             // Attach the material to a large sphere.
             let entity = Entity()
             entity.components.set(ModelComponent(
@@ -32,8 +33,21 @@ struct StadiumView: View {
             // Ensure the texture image points inward and immerse the user in a 360° skybox in a stadium.
             entity.scale *= .init(x: 1, y: 1, z: -1)
             entity.position = [0, -300, -950]
-            
             content.add(entity)
+            
+            /// Audio
+            // Create an empty entity to act as an audio source.
+            let audioSource = Entity()
+
+            // Configure the audio source to project sound out in a tight beam.
+            audioSource.channelAudio = ChannelAudioComponent()
+
+            // Add the audio source to a parent entity, and play a looping sound on it.
+            guard let url = AppConstants.Audio.stadiumUrl else { return }
+            if let audio = try? await AudioFileResource(contentsOf: url, configuration: .init(shouldLoop: true)) {
+                entity.addChild(audioSource)
+                audioSource.playAudio(audio)
+            }
         }
     }
 }

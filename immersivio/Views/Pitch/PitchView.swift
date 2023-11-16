@@ -15,32 +15,44 @@ struct PitchView: View {
     var body: some View {
         RealityView { content, attachments in
             do {
+                /// Pitch
                 // Load and configure pitch entity.
-                let pitch = try await Entity(named: "Pitch", in: realityKitContentBundle)
+                let pitch = try await Entity(named: ContentEntity.pitch.name, in: realityKitContentBundle)
                 viewModel.rootEntity = pitch
                 viewModel.updatePitchScale()
                 pitch.position = viewModel.pitchPosition
                 
-                // Loand and configure ball entity.
-                let ball = try await Entity(named: "Ball", in: realityKitContentBundle)
+                /// Ball
+                // Load and configure ball entity.
+                let ball = try await Entity(named: ContentEntity.ball.name, in: realityKitContentBundle)
                 viewModel.ball = ball
                 ball.scale *= viewModel.ballScaleMultiplier
                 ball.position = viewModel.ballPosition
                 pitch.addChild(ball)
                 
-                // Add entities to RealityView content and allow user to update its scale.
+                /// Audio
+                // Create an empty entity to act as an audio source.
+                let audio = Entity()
+                viewModel.audio = audio
+                // Configure the audio source to project channel sound.
+                audio.channelAudio = ChannelAudioComponent()
+                pitch.addChild(audio)
+                
+                /// Content
+                // Add entities to RealityView content.
                 content.add(pitch)
                 
-                // Add panel attachments to RealityView content and set original position.
+                /// Panels
+                // Add panels attachments to RealityView content and set original position.
                 viewModel.addPanelsAttachmentsToContent(from: attachments)
             } catch {
-                print(error.localizedDescription)
+                fatalError("Unable to load entities.")
             }
         } update: { content, attachments in
             // Update the location where the attachments are looking relative to the rotation angle.
             viewModel.updatePanelsAttachmentsToContent(from: attachments)
         } attachments: {
-            // Create the SwiftUI view panels attaching to the RealityView content.
+            // Attach the SwiftUI view panels to the RealityView content.
             ForEach(Panel.allCases, id: \.self) { panel in
                 if panel == .scorer {
                     Attachment(id: panel.attachmentId) {

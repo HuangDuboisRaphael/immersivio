@@ -34,6 +34,9 @@ final class ViewModel {
     var ballScaleMultiplier: SIMD3<Float> = [0.08, 0.08, 0.08]
     var ballPosition: SIMD3<Float> = [0, 0.152, 0]
     
+    /// Audio
+    var audio: Entity? = nil
+    
     /// Panels
     var marseilleScore: Int = 0
     var bordeauxScore: Int = 0
@@ -60,9 +63,9 @@ final class ViewModel {
     }
     
     /// Scorer
-    var marseilleScorers: [String] = []
-    var bordeauxScorers: [String] = []
-    var currentScorer: String?
+    var marseilleScorers: [Scorer] = []
+    var bordeauxScorers: [Scorer] = []
+    var currentScorer: Scorer?
     var scorerPanelAcuteTargetPosition: SIMD3<Float> {
         [Float(0 + 0.011 * pitchRotation.degrees),
          0.27,
@@ -157,11 +160,11 @@ private extension ViewModel {
     /// Scorer
     func generateRandomScorer(for team: Team) {
         if team == .marseille {
-            let scorer = Team.marseille.listPlayers.randomElement() ?? ""
+            let scorer = Scorer(name: Team.marseille.listPlayers.randomElement() ?? "")
             currentScorer = scorer
             marseilleScorers.append(scorer)
         } else {
-            let scorer = Team.bordeaux.listPlayers.randomElement() ?? ""
+            let scorer = Scorer(name: Team.bordeaux.listPlayers.randomElement() ?? "")
             currentScorer = scorer
             bordeauxScorers.append(scorer)
         }
@@ -185,21 +188,37 @@ private extension ViewModel {
             transform.translation = team == .marseille ? [-0.33, 0.15, 0] : [0.33, 0.15, 0]
             self.ball?.move(to: transform, relativeTo: self.rootEntity, duration: 0.6)
             
-            // Displaying random scorer
+            // Launch the goal audio and display random scorer.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                self.manageGoalAudio(isPlaying: true)
                 self.isDisplayingScorerName = true
             }
         }
     }
     
     func resetToOriginalConfiguration(with scale: SIMD3<Float>) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.6) { [weak self] in
             guard let self = self else { return }
             // Reset to original scale otherwise transforms alters ball entity's scale.
             self.ball?.scale = scale
             self.ball?.position = ballPosition
             self.isDisplayingScorerName = false
+            self.manageGoalAudio(isPlaying: false)
             self.isScoreButtonEnabled = true
+        }
+    }
+    
+    // To play or stop the goal audio asynchronously.
+    func manageGoalAudio(isPlaying: Bool) {
+        Task {
+            guard let url = AppConstants.Audio.goalUrl else { return }
+            if let audioFile = try? await AudioFileResource(contentsOf: url) {
+                if isPlaying {
+                    await audio?.playAudio(audioFile)
+                } else {
+                    await audio?.stopAllAudio()
+                }
+            }
         }
     }
 }
