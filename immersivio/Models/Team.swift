@@ -7,22 +7,14 @@
 
 import Foundation
 
-enum Team: String, Identifiable, CaseIterable {
+enum Team: String {
     case marseille, bordeaux
-    var id: Self { self }
     var name: String { rawValue.capitalized }
     
     var abbreviation: String {
         switch self {
         case .marseille: "OM"
         case .bordeaux: "BDX"
-        }
-    }
-    
-    var attachmentId: String {
-        switch self {
-        case .marseille: "MarseilleAttachment"
-        case .bordeaux: "BordeauxAttachment"
         }
     }
     
@@ -33,10 +25,34 @@ enum Team: String, Identifiable, CaseIterable {
         }
     }
     
-    var originalPanelPosition: SIMD3<Float> {
+    var listPlayers: [String] {
         switch self {
-        case .marseille: [-0.33, 0.27, 0]
-        case .bordeaux: [0.33, 0.27, 0]
+        case .marseille:
+            [
+                "Aubameyang",
+                "Vítinha",
+                "Correa",
+                "Veretout",
+                "Rongier",
+                "Sarr",
+                "Renan Lodi",
+                "Mbemba",
+                "Gigot",
+                "Clauss"
+            ]
+        case .bordeaux:
+            [
+                "Badji",
+                "Livolant",
+                "Weissbeck",
+                "Davitashvili",
+                "Pedro Díaz",
+                "Ignatenko",
+                "N'Simba",
+                "Barbet",
+                "Gregersen",
+                "Michelin"
+            ]
         }
     }
 }

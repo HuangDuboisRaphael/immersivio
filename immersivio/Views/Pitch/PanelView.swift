@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct PanelView: View {
+    @Environment(ViewModel.self) private var viewModel
     @State private var showExtendingPanel = false
-    
-    let viewModel: ViewModel
     let team: Team
     
     var body: some View {
-        ReducedPanel(
-            isShowingExtendingPanel: $showExtendingPanel,
-            team: team,
-            viewModel: viewModel)
+        ReducedPanel(isShowingExtendingPanel: $showExtendingPanel, team: team)
         
         if showExtendingPanel {
             ZStack(alignment: .topLeading) {
-                ExtendedPanel(viewModel: viewModel, team: team)
+                ExtendedPanel(team: team)
                 ExitButton(showExtendingPanel: $showExtendingPanel)
             }
             .padding(.bottom, 330)
@@ -31,9 +27,9 @@ struct PanelView: View {
 }
 
 struct ReducedPanel: View {
+    @Environment(ViewModel.self) private var viewModel
     @Binding var isShowingExtendingPanel: Bool
     let team: Team
-    let viewModel: ViewModel
     
     var body: some View {
         Button {
@@ -58,10 +54,8 @@ struct ReducedPanel: View {
 }
 
 struct ExtendedPanel: View {
-    let viewModel: ViewModel
+    @Environment(ViewModel.self) private var viewModel
     let team: Team
-    
-    var scorers: [String] = ["D.Payet", "T.Henry", "O.Giroud", "A.Griezmann"]
     
     var body: some View {
         VStack(alignment: .center, spacing: 1) {
@@ -82,7 +76,7 @@ struct ExtendedPanel: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
-                    ForEach(scorers, id: \.self) {
+                    ForEach(team == .marseille ? viewModel.marseilleScorers : viewModel.bordeauxScorers, id: \.self) {
                         Text("⚽ \($0) ")
                             .font(.system(size: 16))
                             .foregroundStyle(.black)

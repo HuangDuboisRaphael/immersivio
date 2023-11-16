@@ -15,42 +15,41 @@ struct PitchView: View {
     var body: some View {
         RealityView { content, attachments in
             do {
-                // Load pitch from usd file and save it in view model.
-                let entity = try await Entity(named: "Pitch", in: realityKitContentBundle)
-                viewModel.rootEntity = entity
+                // Load and configure pitch entity.
+                let pitch = try await Entity(named: "Pitch", in: realityKitContentBundle)
+                viewModel.rootEntity = pitch
+                viewModel.updatePitchScale()
+                pitch.position = viewModel.pitchPosition
                 
-                // Add the entity to RealityView content and allow user to update its scale.
-                content.add(entity)
-                viewModel.updateScale()
+                // Loand and configure ball entity.
+                let ball = try await Entity(named: "Ball", in: realityKitContentBundle)
+                viewModel.ball = ball
+                ball.scale *= viewModel.ballScaleMultiplier
+                ball.position = viewModel.ballPosition
+                pitch.addChild(ball)
                 
-                // Offset the scene so it appears on user's field of view.
-                entity.position = viewModel.pitchPosition
+                // Add entities to RealityView content and allow user to update its scale.
+                content.add(pitch)
                 
                 // Add panel attachments to RealityView content and set original position.
-                if let marseillePanelEntity = attachments.entity(for: Team.marseille.attachmentId) {
-                    viewModel.rootEntity?.addChild(marseillePanelEntity)
-                    marseillePanelEntity.setPosition(Team.marseille.originalPanelPosition, relativeTo: viewModel.rootEntity)
-                }
-                if let bordeauxPanelEntity = attachments.entity(for: Team.bordeaux.attachmentId) {
-                    viewModel.rootEntity?.addChild(bordeauxPanelEntity)
-                    bordeauxPanelEntity.setPosition(Team.bordeaux.originalPanelPosition, relativeTo: viewModel.rootEntity)
-                }
+                viewModel.addPanelsAttachmentsToContent(from: attachments)
             } catch {
                 print(error.localizedDescription)
             }
         } update: { content, attachments in
-            // To make the panels following user's field of view when rotating.
-            if let marseillePanelEntity = attachments.entity(for: Team.marseille.attachmentId) {
-                viewModel.transformPanelPosition(marseillePanelEntity, for: .marseille)
-            }
-            if let bordeauxPanelEntity = attachments.entity(for: Team.bordeaux.attachmentId) {
-                viewModel.transformPanelPosition(bordeauxPanelEntity, for: .bordeaux)
-            }
+            // Update the location where the attachments are looking relative to the rotation angle.
+            viewModel.updatePanelsAttachmentsToContent(from: attachments)
         } attachments: {
             // Create the SwiftUI view panels attaching to the RealityView content.
-            ForEach(Team.allCases) { team in
-                Attachment(id: team.attachmentId) {
-                    PanelView(viewModel: viewModel, team: team)
+            ForEach(Panel.allCases, id: \.self) { panel in
+                if panel == .scorer {
+                    Attachment(id: panel.attachmentId) {
+                        ScorerView()
+                    }
+                } else {
+                    Attachment(id: panel.attachmentId) {
+                        PanelView(team: panel == .marseille ? .marseille : .bordeaux)
+                    }
                 }
             }
         }

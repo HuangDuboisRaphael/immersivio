@@ -23,6 +23,8 @@
 		C882E43A2AFD8DCB00A563C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C882E4392AFD8DCB00A563C3 /* Preview Assets.xcassets */; };
 		C8B8651B2B03AF44007AB8E1 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8651A2B03AF44007AB8E1 /* VideoView.swift */; };
 		C8B865202B03D4E5007AB8E1 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B8651F2B03D4E5007AB8E1 /* AppConstants.swift */; };
+		C8F8E53A2B056386007FA25A /* ScorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F8E5392B056386007FA25A /* ScorerView.swift */; };
+		C8F8E53C2B05B1C8007FA25A /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F8E53B2B05B1C8007FA25A /* Panel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		C882E43B2AFD8DCB00A563C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8B8651A2B03AF44007AB8E1 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		C8B8651F2B03D4E5007AB8E1 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		C8F8E5392B056386007FA25A /* ScorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorerView.swift; sourceTree = "<group>"; };
+		C8F8E53B2B05B1C8007FA25A /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +66,9 @@
 			isa = PBXGroup;
 			children = (
 				C81E0BAE2AFEAF13001A75EB /* ViewModel.swift */,
-				C86D7C732B028B6800289096 /* Team.swift */,
 				C81E0BB62AFEE2D2001A75EB /* Module.swift */,
+				C8F8E53B2B05B1C8007FA25A /* Panel.swift */,
+				C86D7C732B028B6800289096 /* Team.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 			children = (
 				C81E0BB02AFEAF4F001A75EB /* PitchView.swift */,
 				C86D7C762B028DAE00289096 /* PanelView.swift */,
+				C8F8E5392B056386007FA25A /* ScorerView.swift */,
 			);
 			path = Pitch;
 			sourceTree = "<group>";
@@ -245,6 +251,8 @@
 			files = (
 				C86D7C742B028B6800289096 /* Team.swift in Sources */,
 				C882E4312AFD8DCA00A563C3 /* immersivioApp.swift in Sources */,
+				C8F8E53A2B056386007FA25A /* ScorerView.swift in Sources */,
+				C8F8E53C2B05B1C8007FA25A /* Panel.swift in Sources */,
 				C86BA1B32B00087F00DB63C1 /* FloatingPoint+Extensions.swift in Sources */,
 				C81E0BAF2AFEAF13001A75EB /* ViewModel.swift in Sources */,
 				C882E4352AFD8DCA00A563C3 /* StadiumView.swift in Sources */,

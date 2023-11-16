@@ -127,7 +127,7 @@ struct GridRowSliders: View {
             range: 0.45...1,
             showVolumetricPitch: viewModel.isShowingPitch)
             .onChange(of: viewModel.pitchScaleSliderValue) {
-                viewModel.updateScale()
+                viewModel.updatePitchScale()
             }
         
         GridRowSlider(
@@ -172,6 +172,7 @@ struct EditScores: View {
 }
 
 struct EditScore: View {
+    @Environment(ViewModel.self) private var viewModel
     @Binding var score: Int
     let team: Team
     
@@ -179,24 +180,28 @@ struct EditScore: View {
         HStack(spacing: 10) {
             Button {
                 if score > 0 {
+                    viewModel.removeLastScorer(for: team)
                     score -= 1
                 }
             } label: {
                 Text("-")
                     .font(.system(size: 32))
             }
-            .disabled(score == 0 ? true : false)
+            .disabled(score == 0 || !viewModel.isScoreButtonEnabled ? true : false)
             
             Text(team.name)
                 .font(.system(size: 21))
                 .bold()
             
             Button {
+                team == .marseille ?
+                viewModel.performGoalAnimation(for: .marseille) : viewModel.performGoalAnimation(for: .bordeaux)
                 score += 1
             } label: {
                 Text("+")
                     .font(.system(size: 32))
             }
+            .disabled(viewModel.isScoreButtonEnabled ? false : true)
         }
     }
 }

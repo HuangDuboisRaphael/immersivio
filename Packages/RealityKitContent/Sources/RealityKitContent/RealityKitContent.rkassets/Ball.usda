@@ -1,0 +1,23 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    float3 xformOp:scale = (0.001, 0.001, 0.001)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def "Ball_import" (
+        active = true
+        prepend references = @Import/Ball_import.usdz@
+    )
+    {
+        float3 xformOp:scale = (1, 0.9999999, 0.9999999)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+
