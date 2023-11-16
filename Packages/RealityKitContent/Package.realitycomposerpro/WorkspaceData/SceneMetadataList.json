@@ -49,6 +49,25 @@
       [
         "51B6D43F-9124-44C0-8A57-2881DAA8CB4C",
         "Root",
+        "pitch",
+        "Geom"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51B6D43F-9124-44C0-8A57-2881DAA8CB4C",
+        "Root",
+        "pitch"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51B6D43F-9124-44C0-8A57-2881DAA8CB4C",
+        "Root",
         "Scene",
         "pitch"
       ],
@@ -58,26 +77,7 @@
       },
       [
         "51B6D43F-9124-44C0-8A57-2881DAA8CB4C",
-        "Root",
-        "pitch"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51B6D43F-9124-44C0-8A57-2881DAA8CB4C",
         "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51B6D43F-9124-44C0-8A57-2881DAA8CB4C",
-        "Root",
-        "pitch",
-        "Geom"
       ],
       {
         "isExpanded" : true,
@@ -142,8 +142,7 @@
     "objectMetadataList" : [
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "pitch"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -153,37 +152,6 @@
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
         "Globe",
-        "Materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "pitch",
-        "Geom",
-        "RootNode"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "pitch",
-        "Materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "Pitch",
         "Materials"
       ],
       {
@@ -203,8 +171,49 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
+        "pitch"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "pitch",
+        "Geom",
+        "RootNode"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
         "Sun_1",
         "Sun"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "Pitch",
+        "Geom",
+        "RootNode"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "Pitch",
+        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -222,18 +231,9 @@
       },
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "Pitch",
-        "Geom",
-        "RootNode"
+        "pitch",
+        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -255,14 +255,6 @@
     "objectMetadataList" : [
       [
         "FB587443-6A53-45E7-9D66-CA643BAB1717",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FB587443-6A53-45E7-9D66-CA643BAB1717",
         "Root",
         "Ball_import",
         "Meshes"
@@ -276,6 +268,14 @@
         "Root",
         "Ball_import",
         "Materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FB587443-6A53-45E7-9D66-CA643BAB1717",
+        "Root"
       ],
       {
         "isExpanded" : true,

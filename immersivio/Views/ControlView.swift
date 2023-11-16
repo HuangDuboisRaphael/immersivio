@@ -194,8 +194,11 @@ struct EditScore: View {
                 .bold()
             
             Button {
-                team == .marseille ?
-                viewModel.performGoalAnimation(for: .marseille) : viewModel.performGoalAnimation(for: .bordeaux)
+                if team == .marseille {
+                    viewModel.performGoalAnimation(for: .marseille)
+                } else {
+                    viewModel.performGoalAnimation(for: .bordeaux)
+                }
                 score += 1
             } label: {
                 Text("+")

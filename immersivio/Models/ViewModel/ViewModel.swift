@@ -12,7 +12,7 @@ import AVKit
 @Observable
 final class ViewModel {
     // MARK: - Properties
-    // MARK: Control
+    // MARK: ControlView
     var videoToggleTitle: String = "Last match replay"
     var stadiumToggleTitle: String = "Immersive stadium"
     var pitchToggleTitle: String = "Show 3D pitch"
@@ -22,22 +22,21 @@ final class ViewModel {
     var pitchRotation: Angle = Angle.zero
     var isScoreButtonEnabled: Bool = true
     
-    // MARK: Pitch
-    /// Pitch
-    var rootEntity: Entity? = nil
-    var pitchPosition: SIMD3<Float> = [0, -0.28, 0]
+    // MARK: PitchView
+    // Pitch
+    var rootEntity: Entity?
+    var pitchConfiguration: PitchEntity.Configuration = .init()
     var isShowingPitch: Bool = false
     
-    /// Ball
-    var ball: Entity? = nil
+    // Ball
+    var ball: Entity?
     private var ballTransform: Transform? { ball?.transform }
-    var ballScaleMultiplier: SIMD3<Float> = [0.08, 0.08, 0.08]
-    var ballPosition: SIMD3<Float> = [0, 0.152, 0]
+    var ballConfiguration: BallEntity.Configuration = .init()
     
-    /// Audio
-    var audio: Entity? = nil
+    // Audio
+    var audio: Entity?
     
-    /// Panels
+    // Panels
     var marseilleScore: Int = 0
     var bordeauxScore: Int = 0
     var isDisplayingScorerName: Bool = false
@@ -62,10 +61,10 @@ final class ViewModel {
          Float(0.011 * (pitchRotation.degrees - 90))]
     }
     
-    /// Scorer
+    // Scorer
+    var currentScorer: Scorer?
     var marseilleScorers: [Scorer] = []
     var bordeauxScorers: [Scorer] = []
-    var currentScorer: Scorer?
     var scorerPanelAcuteTargetPosition: SIMD3<Float> {
         [Float(0 + 0.011 * pitchRotation.degrees),
          0.27,
@@ -77,15 +76,16 @@ final class ViewModel {
          Float(0.011 * (pitchRotation.degrees - 90))]
     }
     
-    // MARK: Video
+    // MARK: VideoView
     var player: AVPlayer { AVPlayer(url: URL(string: AppConstants.Video.url)!) }
     var isDisplayingVideo: Bool = false
     
-    // MARK: Immersive
+    // MARK: StadiumView
+    var stadiumConfiguration: StadiumEntity.Configuration = .init()
     var isShowingStadium: Bool = false
     
     // MARK: - Methods
-    /// Pitch
+    // Pitch
     func updatePitchScale() {
         let newScale = Float.lerp(a: 0.2, b: 1.0, t: pitchScaleSliderValue)
         rootEntity?.setScale(SIMD3<Float>(repeating: newScale), relativeTo: nil)
@@ -108,7 +108,7 @@ final class ViewModel {
         }
     }
     
-    /// Scorer
+    // Scorer
     func performGoalAnimation(for team: Team) {
         guard let scale = ball?.scale else { return }
         // To display the scorer in panel scorer and add it in respective array.
@@ -117,6 +117,7 @@ final class ViewModel {
         // Disabled score buttons to wait for the animation to finish.
         isScoreButtonEnabled = false
         
+        // Perform animation.
         performTranslations(for: team)
         resetToOriginalConfiguration(with: scale)
     }
@@ -132,7 +133,7 @@ final class ViewModel {
 
 // To store private methods.
 private extension ViewModel {
-    /// Pitch
+    // Pitch
     // To make all the RealityView panels follow the user's sight when rotating.
     func transformPanelsPosition(for entity: Entity, ofType panel: Panel) {
         switch panel {
@@ -157,7 +158,7 @@ private extension ViewModel {
         }
     }
     
-    /// Scorer
+    // Scorer
     func generateRandomScorer(for team: Team) {
         if team == .marseille {
             let scorer = Scorer(name: Team.marseille.listPlayers.randomElement() ?? "")
@@ -177,7 +178,7 @@ private extension ViewModel {
     
     func performFirstTranslation(for team: Team) {
         guard var transform = ballTransform else { return }
-        transform.translation = team == .marseille ? [-0.15, 0.2, 0] : [0.15, 0.2, 0]
+        transform.translation = team == .marseille ? [0.15, 0.2, 0] : [-0.15, 0.2, 0]
         ball?.move(to: transform, relativeTo: rootEntity, duration: 0.6)
     }
     
@@ -185,7 +186,7 @@ private extension ViewModel {
         guard var transform = ballTransform else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [weak self] in
             guard let self = self else { return }
-            transform.translation = team == .marseille ? [-0.33, 0.15, 0] : [0.33, 0.15, 0]
+            transform.translation = team == .marseille ? [0.33, 0.15, 0] : [-0.33, 0.15, 0]
             self.ball?.move(to: transform, relativeTo: self.rootEntity, duration: 0.6)
             
             // Launch the goal audio and display random scorer.
@@ -201,7 +202,7 @@ private extension ViewModel {
             guard let self = self else { return }
             // Reset to original scale otherwise transforms alters ball entity's scale.
             self.ball?.scale = scale
-            self.ball?.position = ballPosition
+            self.ball?.position = ballConfiguration.position
             self.isDisplayingScorerName = false
             self.manageGoalAudio(isPlaying: false)
             self.isScoreButtonEnabled = true

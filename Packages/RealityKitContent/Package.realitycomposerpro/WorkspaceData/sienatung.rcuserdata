@@ -2,8 +2,7 @@
   "advancedEditorSelectedIdentifier" : "ProjectBrowser",
   "openSceneRelativePaths" : [
     "Pitch.usda",
-    "Ball.usda",
-    "StadiumSound.usda"
+    "Ball.usda"
   ],
   "recentIdentifiers" : {
     "1D572CEB-057A-41C3-B575-04C37501A3C0" : [
@@ -723,6 +722,28 @@
     ],
     "FB587443-6A53-45E7-9D66-CA643BAB1717" : [
       {
+        "date" : 721856743.751994,
+        "title" : "Untitled",
+        "transform" : [
+          0.9934971,
+          -2.0085196e-09,
+          -0.113857724,
+          0,
+          -0.03311039,
+          0.95678234,
+          -0.2889139,
+          0,
+          0.10893706,
+          0.29080498,
+          0.9505604,
+          0,
+          0.02355346,
+          0.6215087,
+          1.0917157,
+          1
+        ]
+      },
+      {
         "date" : 721843318.854477,
         "title" : "Untitled",
         "transform" : [
@@ -919,30 +940,8 @@
           0.4445531,
           1
         ]
-      },
-      {
-        "date" : 721754599.597731,
-        "title" : "Untitled",
-        "transform" : [
-          0.69771284,
-          -4.1543347e-09,
-          0.7163775,
-          0,
-          0.1071057,
-          0.9887601,
-          -0.10431514,
-          0,
-          -0.70832556,
-          0.14951013,
-          0.68987066,
-          0,
-          -0.23669721,
-          0.43677092,
-          0.4632292,
-          1
-        ]
       }
     ]
   },
-  "selectedSceneRelativePath" : ""
+  "selectedSceneRelativePath" : "Pitch.usda"
 }

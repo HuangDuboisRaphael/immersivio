@@ -14,38 +14,20 @@ struct StadiumView: View {
     
     var body: some View {
         RealityView { content in
-            /// Stadium
             // Create a material with the stadium on it.
-            guard let resource = try? await TextureResource(named: ContentEntity.stadium.name) else {
-                // If the asset isn't available, something is wrong with the app.
-                fatalError("Unable to load stadium texture.")
-            }
-            var material = UnlitMaterial()
-            material.color = .init(texture: .init(resource))
+            let stadium = await StadiumEntity(configuration: viewModel.stadiumConfiguration).stadium
+            content.add(stadium)
             
-            // Attach the material to a large sphere.
-            let entity = Entity()
-            entity.components.set(ModelComponent(
-                mesh: .generateSphere(radius: 1000),
-                materials: [material]
-            ))
-            
-            // Ensure the texture image points inward and immerse the user in a 360° skybox in a stadium.
-            entity.scale *= .init(x: 1, y: 1, z: -1)
-            entity.position = [0, -300, -950]
-            content.add(entity)
-            
-            /// Audio
             // Create an empty entity to act as an audio source.
             let audioSource = Entity()
 
-            // Configure the audio source to project sound out in a tight beam.
+            // Configure the audio source to project channel sound.
             audioSource.channelAudio = ChannelAudioComponent()
 
-            // Add the audio source to a parent entity, and play a looping sound on it.
+            // Add the audio source to the stadium entity and play a looping sound on it.
             guard let url = AppConstants.Audio.stadiumUrl else { return }
             if let audio = try? await AudioFileResource(contentsOf: url, configuration: .init(shouldLoop: true)) {
-                entity.addChild(audioSource)
+                stadium.addChild(audioSource)
                 audioSource.playAudio(audio)
             }
         }

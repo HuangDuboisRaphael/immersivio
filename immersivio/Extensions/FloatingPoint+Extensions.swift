@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension FloatingPoint {
+extension FloatingPoint {
     static func lerp(a: Self, b: Self, t: Self) -> Self {
         let one = Self(1)
         let oneMinusT = one - t

@@ -38,6 +38,7 @@ struct immersivioApp: App {
             StadiumView()
                 .environment(viewModel)
         }
+        // Limit immersion style to full.
         .immersionStyle(selection: $stadiumImmersionStyle, in: .full)
     }
 }
