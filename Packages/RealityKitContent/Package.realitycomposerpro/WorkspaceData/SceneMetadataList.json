@@ -48,6 +48,14 @@
     "objectMetadataList" : [
       [
         "51B6D43F-9124-44C0-8A57-2881DAA8CB4C",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "51B6D43F-9124-44C0-8A57-2881DAA8CB4C",
         "Root",
         "Scene",
         "pitch"
@@ -58,7 +66,8 @@
       },
       [
         "51B6D43F-9124-44C0-8A57-2881DAA8CB4C",
-        "Root"
+        "Root",
+        "pitch"
       ],
       {
         "isExpanded" : true,
@@ -69,15 +78,6 @@
         "Root",
         "pitch",
         "Geom"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "51B6D43F-9124-44C0-8A57-2881DAA8CB4C",
-        "Root",
-        "pitch"
       ],
       {
         "isExpanded" : true,
@@ -143,18 +143,7 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "pitch",
-        "Materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "pitch",
-        "Geom"
+        "pitch"
       ],
       {
         "isExpanded" : true,
@@ -165,6 +154,26 @@
         "Root",
         "Pitch",
         "Geom"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "Pitch",
+        "Materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "Globe",
+        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -176,14 +185,6 @@
         "Pitch",
         "Geom",
         "RootNode"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root"
       ],
       {
         "isExpanded" : true,
@@ -202,7 +203,17 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "pitch"
+        "pitch",
+        "Geom",
+        "RootNode"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -211,7 +222,17 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "Globe",
+        "pitch",
+        "Geom"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "pitch",
         "Materials"
       ],
       {
@@ -227,27 +248,6 @@
       {
         "isExpanded" : true,
         "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "Pitch",
-        "Materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "pitch",
-        "Geom",
-        "RootNode"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
       }
     ]
   },
@@ -256,16 +256,8 @@
       [
         "FB587443-6A53-45E7-9D66-CA643BAB1717",
         "Root",
-        "Ball_import",
-        "Meshes"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FB587443-6A53-45E7-9D66-CA643BAB1717",
-        "Root"
+        "Pitch_import",
+        "Materials"
       ],
       {
         "isExpanded" : true,
@@ -283,8 +275,8 @@
       [
         "FB587443-6A53-45E7-9D66-CA643BAB1717",
         "Root",
-        "Pitch_import",
-        "Materials"
+        "Ball_import",
+        "Meshes"
       ],
       {
         "isExpanded" : true,
@@ -295,6 +287,14 @@
         "Root",
         "Ball_import",
         "Materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FB587443-6A53-45E7-9D66-CA643BAB1717",
+        "Root"
       ],
       {
         "isExpanded" : true,

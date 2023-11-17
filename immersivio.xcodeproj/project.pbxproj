@@ -12,10 +12,11 @@
 		C81E0BB32AFEDCA0001A75EB /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E0BB22AFEDCA0001A75EB /* ControlView.swift */; };
 		C81E0BB72AFEE2D2001A75EB /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E0BB62AFEE2D2001A75EB /* Module.swift */; };
 		C838EC9C2B066AE000E41C55 /* StadiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838EC9B2B066AE000E41C55 /* StadiumView.swift */; };
-		C838ECA32B06701700E41C55 /* Stadium_Sounds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C838ECA22B06701700E41C55 /* Stadium_Sounds.mp3 */; };
-		C838ECA72B0674DE00E41C55 /* Goal_Sounds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C838ECA62B0674DE00E41C55 /* Goal_Sounds.mp3 */; };
 		C838ECAC2B06864400E41C55 /* Scorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838ECAB2B06864400E41C55 /* Scorer.swift */; };
 		C838ECAF2B068A9D00E41C55 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C838ECAE2B068A9D00E41C55 /* .swiftlint.yml */; };
+		C86057C52B06F7A50054DAA3 /* Light.skybox in Resources */ = {isa = PBXBuildFile; fileRef = C86057C22B06F7A50054DAA3 /* Light.skybox */; };
+		C86057C62B06F7A50054DAA3 /* Stadium_Sounds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C86057C32B06F7A50054DAA3 /* Stadium_Sounds.mp3 */; };
+		C86057C72B06F7A50054DAA3 /* Goal_Sounds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C86057C42B06F7A50054DAA3 /* Goal_Sounds.mp3 */; };
 		C86BA1B32B00087F00DB63C1 /* FloatingPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86BA1B22B00087F00DB63C1 /* FloatingPoint+Extensions.swift */; };
 		C86D7C742B028B6800289096 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86D7C732B028B6800289096 /* Team.swift */; };
 		C86D7C772B028DAE00289096 /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86D7C762B028DAE00289096 /* PanelView.swift */; };
@@ -23,7 +24,6 @@
 		C86D7C7C2B02969600289096 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86D7C7B2B02969600289096 /* ButtonStyle.swift */; };
 		C88140852B06AC0800EF95F0 /* PitchEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88140842B06AC0800EF95F0 /* PitchEntity.swift */; };
 		C88140872B06B5EC00EF95F0 /* BallEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88140862B06B5EC00EF95F0 /* BallEntity.swift */; };
-		C881408E2B06C2D100EF95F0 /* Light.skybox in Resources */ = {isa = PBXBuildFile; fileRef = C881408D2B06C2D100EF95F0 /* Light.skybox */; };
 		C88140902B06C47400EF95F0 /* StadiumEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C881408F2B06C47400EF95F0 /* StadiumEntity.swift */; };
 		C882E42F2AFD8DCA00A563C3 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = C882E42E2AFD8DCA00A563C3 /* RealityKitContent */; };
 		C882E4312AFD8DCA00A563C3 /* immersivioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882E4302AFD8DCA00A563C3 /* immersivioApp.swift */; };
@@ -41,10 +41,11 @@
 		C81E0BB22AFEDCA0001A75EB /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
 		C81E0BB62AFEE2D2001A75EB /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		C838EC9B2B066AE000E41C55 /* StadiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiumView.swift; sourceTree = "<group>"; };
-		C838ECA22B06701700E41C55 /* Stadium_Sounds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Stadium_Sounds.mp3; path = ../../../../../Downloads/Stadium_Sounds.mp3; sourceTree = "<group>"; };
-		C838ECA62B0674DE00E41C55 /* Goal_Sounds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Goal_Sounds.mp3; path = ../../../../../Downloads/Goal_Sounds.mp3; sourceTree = "<group>"; };
 		C838ECAB2B06864400E41C55 /* Scorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scorer.swift; sourceTree = "<group>"; };
 		C838ECAE2B068A9D00E41C55 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		C86057C22B06F7A50054DAA3 /* Light.skybox */ = {isa = PBXFileReference; lastKnownFileType = file.skybox; path = Light.skybox; sourceTree = "<group>"; };
+		C86057C32B06F7A50054DAA3 /* Stadium_Sounds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Stadium_Sounds.mp3; sourceTree = "<group>"; };
+		C86057C42B06F7A50054DAA3 /* Goal_Sounds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Goal_Sounds.mp3; sourceTree = "<group>"; };
 		C86BA1B22B00087F00DB63C1 /* FloatingPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+Extensions.swift"; sourceTree = "<group>"; };
 		C86D7C732B028B6800289096 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		C86D7C762B028DAE00289096 /* PanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelView.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		C86D7C7B2B02969600289096 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		C88140842B06AC0800EF95F0 /* PitchEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchEntity.swift; sourceTree = "<group>"; };
 		C88140862B06B5EC00EF95F0 /* BallEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallEntity.swift; sourceTree = "<group>"; };
-		C881408D2B06C2D100EF95F0 /* Light.skybox */ = {isa = PBXFileReference; lastKnownFileType = file.skybox; name = Light.skybox; path = "../../../../Downloads/HelloWorld-2/World/Resources/Light.skybox"; sourceTree = "<group>"; };
 		C881408F2B06C47400EF95F0 /* StadiumEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiumEntity.swift; sourceTree = "<group>"; };
 		C882E4292AFD8DCA00A563C3 /* immersivio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = immersivio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C882E42D2AFD8DCA00A563C3 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
@@ -87,15 +87,6 @@
 				C838ECAA2B06863600E41C55 /* DataModel */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		C838ECA02B066F3E00E41C55 /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				C838ECA62B0674DE00E41C55 /* Goal_Sounds.mp3 */,
-				C838ECA22B06701700E41C55 /* Stadium_Sounds.mp3 */,
-			);
-			path = Sounds;
 			sourceTree = "<group>";
 		};
 		C838ECA82B06862100E41C55 /* Enums */ = {
@@ -138,8 +129,9 @@
 		C86BA1AE2AFFED1E00DB63C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C881408D2B06C2D100EF95F0 /* Light.skybox */,
-				C838ECA02B066F3E00E41C55 /* Sounds */,
+				C86057C42B06F7A50054DAA3 /* Goal_Sounds.mp3 */,
+				C86057C22B06F7A50054DAA3 /* Light.skybox */,
+				C86057C32B06F7A50054DAA3 /* Stadium_Sounds.mp3 */,
 				C882E4362AFD8DCB00A563C3 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -304,10 +296,10 @@
 			files = (
 				C838ECAF2B068A9D00E41C55 /* .swiftlint.yml in Resources */,
 				C882E43A2AFD8DCB00A563C3 /* Preview Assets.xcassets in Resources */,
-				C881408E2B06C2D100EF95F0 /* Light.skybox in Resources */,
-				C838ECA32B06701700E41C55 /* Stadium_Sounds.mp3 in Resources */,
+				C86057C52B06F7A50054DAA3 /* Light.skybox in Resources */,
+				C86057C72B06F7A50054DAA3 /* Goal_Sounds.mp3 in Resources */,
 				C882E4372AFD8DCB00A563C3 /* Assets.xcassets in Resources */,
-				C838ECA72B0674DE00E41C55 /* Goal_Sounds.mp3 in Resources */,
+				C86057C62B06F7A50054DAA3 /* Stadium_Sounds.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
