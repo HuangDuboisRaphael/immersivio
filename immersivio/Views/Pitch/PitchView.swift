@@ -56,5 +56,10 @@ struct PitchView: View {
         }
         // Add rotation effect.
         .rotation3DEffect(viewModel.pitchRotation, axis: .y)
+        
+        // Switch pitch toggle to off if the user manually exits the window.
+        .onDisappear {
+            viewModel.isShowingPitch = false
+        }
     }
 }
